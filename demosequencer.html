@@ -23,6 +23,7 @@
 
 </head>
 <body>	
+	<button id = "clickme" >Click me first</button>
 	<style type="text/css">
 		canvas {
 			margin-top: 3px;
@@ -38,7 +39,7 @@
 	</div>	
 	<script>
 		//user click starts the audiocontext.  Necessary because of Chrome security update
-		document.querySelector('button').addEventListener('click', e => 
+		document.querySelector('#clickme').addEventListener('click', e => 
 		{
 		if (Tone.context.state !== 'running') 
 			{
