@@ -1,3 +1,13 @@
+
+document.querySelector('button').addEventListener('click', e => 
+	{
+		if (Tone.context.state !== 'running') 
+			{
+				Tone.context.resume();
+				alert('Playback resumed successfully');      
+			 }; 
+		});
+
 function sequencer() {
   const kick = new Tone.Player("./drums/kick-electro01.wav").toMaster();
   const snare = new Tone.Player("./drums/snare-lofi02.wav").toMaster();
