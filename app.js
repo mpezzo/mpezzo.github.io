@@ -14,7 +14,7 @@ function sequencer() {
   let index = 0;
 
   Tone.Transport.scheduleRepeat(repeat, "8n");
-  Tone.Transport.start();
+  Tone.Transport.start(+0.1);
 
   function repeat() {
     let step = index % 8;
