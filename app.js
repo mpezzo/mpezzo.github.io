@@ -14,7 +14,7 @@ function sequencer() {
   let index = 0;
 
   Tone.Transport.scheduleRepeat(repeat, "8n");
-  Tone.Transport.start(+0.1);
+  Tone.Transport.start();
 
   function repeat() {
     let step = index % 8;
@@ -27,9 +27,9 @@ function sequencer() {
     if (kickInputs.checked) {
       kick.start();
     }
-    if (snareInputs.checked) {
+    //if (snareInputs.checked) {
       snare.start();
-    }
+    //}
     index++;
   }
 }
