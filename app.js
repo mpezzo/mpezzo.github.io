@@ -9,8 +9,8 @@ document.querySelector('button').addEventListener('click', e =>
 		});
 
 function sequencer() {
-  const kick = new Tone.Player("./drums/kick-electro01.wav").toMaster();
-  const snare = new Tone.Player("./drums/snare-lofi02.wav").toMaster();
+  const kick = new Tone.Player("./drums/snare-vinyl01.wav").toMaster();
+  const snare = new Tone.Player("./drums/snare-808.wav").toMaster();
   let index = 0;
 
   Tone.Transport.scheduleRepeat(repeat, "8n");
