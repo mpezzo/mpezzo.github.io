@@ -30,10 +30,15 @@
 		}
 	</style>
 	<div id="Content">
-		<div id="Title">Tone.Transport</div>
-		<div id="Explanation">
-			<a href="https://tonejs.github.io/docs/#Transport">Tone.Transport</a> 
-			is the application-wide timekeeper. It's clock source enables sample-accurate scheduling as well as tempo-curves and automation. This example uses Tone.Sequence to invoke a callback every 16th note.
+		<div id="Title">Judgment lab @ University of South Florida St. Petersburg</div>
+		<div id="Explanation">Directions
+			<ul>
+				<li> Click Start</li>  
+				<li> Move the slider LEFT to slow down</li>
+				<li> Move the slider RIGHT to speed up</li>
+				<li> Adjust so that the pattern plays fast, but not too fast</li>
+				<li> In other words make the pattern musical to your ears</li>
+			</ul>
 		</div>
 		<canvas nx="matrix"></canvas>
 	</div>	
@@ -88,7 +93,7 @@
 		}
 
 		Interface.Slider({
-			name : "BPM",
+			name : "Slider",
 			min : 80,
 			max : 200,
 			value : Tone.Transport.bpm.value,
@@ -107,6 +112,7 @@
 			},
 			end : function(){
 				loop.stop();
+				alert('you have stopped the pattern');
 			},
 		});
 
