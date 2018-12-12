@@ -37,6 +37,17 @@
 		<canvas nx="matrix"></canvas>
 	</div>	
 	<script>
+		//user click starts the audiocontext.  Necessary because of Chrome security update
+		document.querySelector('button').addEventListener('click', e => 
+		{
+		if (Tone.context.state !== 'running') 
+			{
+			Tone.context.resume();
+			alert('Playback resumed successfully');      
+			 }; 
+		});
+		
+		
 		//setup a polyphonic sampler
 		var keys = new Tone.Players({
 			"A" : "https://tonejs.github.io/examples/audio/casio/A1.[mp3|ogg]",
