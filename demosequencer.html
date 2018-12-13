@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+	<title>SCORE</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="icon" type="image/png" sizes="174x174" href="https://tonejs.github.io/examples/style/favicon.png">
+
+	<script src="https://tonejs.github.io/build/Tone.js"></script>
+	<script src="https://tonejs.github.io/examples/scripts/jquery.min.js"></script>
+	<script src="https://tonejs.github.io/examples/scripts/draggabilly.js"></script>
+	<script src="https://tonejs.github.io/Logo/build/Logo.js"></script>
+	<script src="https://tonejs.github.io/examples/scripts/StartAudioContext.js"></script>
+	<script src="https://tonejs.github.io/examples/scripts/Interface.js"></script>
+	<script src="https://tonejs.github.io/examples/scripts/nexusUI.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="https://tonejs.github.io/examples/style/examples.css">
+
+	<script>
+		// jshint ignore: start
+	</script>
+
+</head>
+<body>	
+	<button id = "clickme" >Click me first</button>
+	<style type="text/css">
+		canvas {
+			margin-top: 3px;
+		}
+	</style>
+	<div id="Content">
+		<div id="Title">Judgment lab @ University of South Florida St. Petersburg</div>
+		<div id="Explanation">Directions
+			<ul>
+				<li> Click Start</li>  
+				<li> Move the slider LEFT to slow down</li>
+				<li> Move the slider RIGHT to speed up</li>
+				<li> Adjust so that the pattern plays fast, but not too fast</li>
+				<li> In other words make the pattern musical to your ears</li>
+			</ul>
+		</div>
+		<canvas nx="matrix"></canvas>
+	</div>	
+	<script>
+		//user click starts the audiocontext.  Necessary because of Chrome security update
+		document.querySelector('#clickme').addEventListener('click', e => 
+		{
+		if (Tone.context.state !== 'running') 
+			{
+			Tone.context.resume();
+			console.log('Playback resumed successfully');      
+			 }; 
+		});
+		
+		
+		//setup a polyphonic sampler
+		var keys = new Tone.Players({
+			"A" : "https://mpezzo.github.io/drums/snare-808.wav",
+			"C#" : "https://tonejs.github.io/examples/audio/casio/Cs2.[mp3|ogg]",
+			"E" : "https://tonejs.github.io/examples/audio/casio/E2.[mp3|ogg]",
+			"F#" : "https://tonejs.github.io/examples/audio/casio/Fs2.[mp3|ogg]",
+		}, {
+			"volume" : -10,
+			"fadeOut" : "64n",
+		}).toMaster();
+		//the notes
+		var noteNames = ["F#", "E", "C#", "A"];
+		var loop = new Tone.Sequence(function(time, col){
+			var column = matrix1.matrix[col];
+			for (var i = 0; i < 4; i++){
+				if (column[i] === 1){
+					//slightly randomized velocities
+					var vel = Math.random() * 0.5 + 0.5;
+					keys.get(noteNames[i]).start(time, 0, "32n", 0, vel);
+				}
+			}
+		}, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], "16n");
+		//Tone.Transport.start();
+		// GUI //
+		nx.onload = function(){
+			nx.colorize("#f5871f");
+			
+			matrix1.col = 16;
+			matrix1.init();
+			matrix1.resize($("#Content").width(), 250);
+			matrix1.draw();
+		}
+		Interface.Slider({
+			name : "Slider",
+			min : 80,
+			max : 200,
+			value : Tone.Transport.bpm.value,
+			drag : function(val){
+				Tone.Transport.bpm.value = val;
+			}
+		});
+		Interface.Button({
+			text : "Start",
+			activeText : "Stop",
+			type : "toggle",
+			key : 32, //spacebar
+			start : function(){
+				Tone.Transport.start();
+				loop.start();
+			},
+			end : function(){
+				loop.stop();
+				//alert('you have stopped the pattern');
+			},
+		});
+		Interface.Loader();
+		$(window).on("resize", function(){
+			matrix1.resize($("#Content").width(), 250);
+			matrix1.draw();	
+		});
+	</script>
+</body>
+</html>
