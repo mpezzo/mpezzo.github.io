@@ -82,6 +82,7 @@ I AM NOW GOING TO CHANGE 1 MORE THING, AND COMMIT.  THIS SENTENCE IS THE SECOND 
 					//slightly randomized velocities
 					var vel = Math.random() * 0.5 + 0.5;
 					keys.get(noteNames[i]).start(time, 0, "32n", 0, vel);
+					console.log(i);
 				}
 			}
 		}, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], "16n");
