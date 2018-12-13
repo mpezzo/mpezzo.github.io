@@ -14,6 +14,9 @@
 	<script src="https://tonejs.github.io/examples/scripts/StartAudioContext.js"></script>
 	<script src="https://tonejs.github.io/examples/scripts/Interface.js"></script>
 	<script src="https://tonejs.github.io/examples/scripts/nexusUI.js"></script>
+	
+	<!-- This is the unmute script that starts or restarts audiocontext -->
+	<script type="text/javascript" src="https://unpkg.com/unmute" data-add-button="true"></script>
 
 	<link rel="stylesheet" type="text/css" href="https://tonejs.github.io/examples/style/examples.css">
 
@@ -23,7 +26,6 @@
 
 </head>
 <body>	
-	<button id = "clickme" >Click me first</button>
 	<style type="text/css">
 		canvas {
 			margin-top: 3px;
@@ -43,17 +45,6 @@
 		<canvas nx="matrix"></canvas>
 	</div>	
 	<script>
-		//user click starts the audiocontext.  Necessary because of Chrome security update
-		document.querySelector('#clickme').addEventListener('click', e => 
-		{
-		if (Tone.context.state !== 'running') 
-			{
-			Tone.context.resume();
-			console.log('Playback resumed successfully');      
-			 }; 
-		});
-		
-		
 		//setup a polyphonic sampler
 		var keys = new Tone.Players({
 			"A" : "https://mpezzo.github.io/drums/snare-808.wav",
