@@ -1,0 +1,115 @@
+.inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.circle {
+  background-color: blue;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+}
+.practiceExercise, .trailMaker1, .trailMaker2, .readyButton {
+  display: none;
+}
+.container2 {
+  display: none;
+}
+.circle {
+  position: fixed;
+  cursor: pointer;
+}
+.circle:hover {
+  background-color: darkblue;
+}
+.circle p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-size: 1.5em;
+}
+.practiceExercise, .trailMaker1, .trailMaker2 {
+  width: 700px;
+  height: 500px;
+  border: 2px solid black;
+}
+.practice.number5 {
+  top: 200px;
+  left: 330px;
+}
+.practice.number4 {
+  top: 0px;
+  left: 0px;
+}
+.practice.number1 {
+  top: 150px;
+  left: 400px;
+}
+.practice.number3 {
+  top: 250px;
+  left: 350px;
+}
+.practice.number2 {
+  top: 130px;
+  left: 330px;
+}
+.trailMakerOne.number5 {
+  top: 0px;
+  left: 0px;
+}
+.trailMakerOne.number4 {
+  top: 200px;
+  left: 330px;
+}
+.trailMakerOne.number1 {
+  top: 250px;
+  left: 350px;
+}
+.trailMakerOne.number3 {
+  top: 130px;
+  left: 330px;
+}
+.trailMakerOne.number2 {
+  top: 150px;
+  left: 400px;
+}
+.trailMakerTwo.number5 {
+  top: 50px;
+  left: 50px;
+}
+.trailMakerTwo.number4 {
+  top: 0px;
+  left: 0px;
+}
+.trailMakerTwo.number1 {
+  top: 460px;
+  left: 500px;
+}
+.trailMakerTwo.number3 {
+  top: 250px;
+  left: 350px;
+}
+.trailMakerTwo.number2 {
+  top: 350px;
+  left: 350px;
+}
+.incorrect {
+  background-color: red;
+}
+.readyButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
