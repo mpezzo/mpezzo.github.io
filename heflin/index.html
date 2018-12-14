@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+<!-- saved from url=(0041)http://web-audio-sequencer.herokuapp.com/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>808 Sequencer</title>
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <link rel="stylesheet" type="text/css" href="css/trailmaking.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="instructions">
+        <h1>Instructions</h1>
+        <p>Click START <br>
+        Wait 5 Seconds, then adjust the tempo.<br>Find the tempo that sounds the best to you. Adjust tempo by clicking the up or down arrows. Don’t be afraid to click a lot of times. <br>
+        Continue adjusting until you are sure <br>
+        Click DONE.</p>
+      </div>
+      <div class="information">
+        <p>Please enter the following information:</p>
+        <form id="information" onsubmit='checkForm(); return false;'>
+          <label for="" >Mechanical Turk ID</label>
+          <input id="id" name="id" type="text" id="id" ><br>
+          <label for="">Age</label>
+          <input name="age" type="text" id="age"><br>
+          <label for="">Sex</label>
+          <select name="sex"  id="sex">br
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+          </select><br>
+          <label for="">Previous Music Experience (Rate yourself from 1-10)</label>
+          <input name="experience" type="text" id="experience"><br><br>
+          <input type="submit">
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="playButton">
+        <button id="play-pause" type="button" class="btn btn-default btn-lg noselect">
+          <span class="startSequencer" id="startStopButton">START TRIAL 1</span>
+        </button>
+      </div>
+      <div class="arrows">
+        <span id="decrease-tempo" class="glyphicon glyphicon-arrow-down btn btn-default tempo-btn"></span>
+        <span id="increase-tempo" class="glyphicon glyphicon-arrow-up btn btn-default tempo-btn"></span>
+      </div>
+      <span class="tempo-container">
+        <label for="tempo-input" class="tempo-label">Tempo </label>
+        <input id="tempo-input" type="number" disabled="">
+        <!--<div class="changeSequences">
+          <p style="font-weight: bold; text-align: center;">Pattern</p>
+          <button id="1" class="changeSequence btn btn-default btn-lg noselect"><span>1</span></button>
+          <button id="2" class="changeSequence btn btn-default btn-lg noselect"><span>2</span></button>
+          <button id="3" class="changeSequence btn btn-default btn-lg noselect"><span>3</span></button>
+          <button id="4" class="changeSequence btn btn-default btn-lg noselect"><span>4</span></button>
+        </div>-->
+        <button onclick="hideGrid()" class="btn btn-default btn-lg noselect" style="display: none;">Hide Grid</button>
+      </span>
+    </div>
+    <div class="row kickrow" data-instrument="kick">
+      <span class="instrument-label"><strong>Kick</strong></span>
+      <div class="pad column_0">
+
+      </div>
+      <div class="pad column_1">
+
+      </div>
+      <div class="pad column_2">
+
+      </div>
+      <div class="pad column_3">
+
+      </div>
+      <div class="pad column_4">
+
+      </div>
+      <div class="pad column_5">
+
+      </div>
+      <div class="pad column_6">
+
+      </div>
+      <div class="pad column_7">
+
+      </div>
+      <div class="pad column_8">
+
+      </div>
+      <div class="pad column_9">
+
+      </div>
+      <div class="pad column_10">
+
+      </div>
+      <div class="pad column_11">
+
+      </div>
+      <div class="pad column_12">
+
+      </div>
+      <div class="pad column_13">
+
+      </div>
+      <div class="pad column_14">
+
+      </div>
+      <div class="pad column_15">
+
+      </div>
+    </div>
+    <div class="row snarerow" data-instrument="snare">
+      <span class="instrument-label"><strong>Snare</strong></span>
+      <div class="pad column_0">
+
+      </div>
+      <div class="pad column_1">
+
+      </div>
+      <div class="pad column_2">
+
+      </div>
+      <div class="pad column_3">
+
+      </div>
+      <div class="pad column_4">
+
+      </div>
+      <div class="pad column_5">
+
+      </div>
+      <div class="pad column_6">
+
+      </div>
+      <div class="pad column_7">
+
+      </div>
+      <div class="pad column_8">
+
+      </div>
+      <div class="pad column_9">
+
+      </div>
+      <div class="pad column_10">
+
+      </div>
+      <div class="pad column_11">
+
+      </div>
+      <div class="pad column_12">
+
+      </div>
+      <div class="pad column_13">
+
+      </div>
+      <div class="pad column_14">
+
+      </div>
+      <div class="pad column_15">
+
+      </div>
+    </div>
+    <div class="row hihatrow" data-instrument="hihat">
+      <span class="instrument-label"><strong>Hi-Hat</strong></span>
+      <div class="pad column_0">
+
+      </div>
+      <div class="pad column_1">
+
+      </div>
+      <div class="pad column_2">
+
+      </div>
+      <div class="pad column_3">
+
+      </div>
+      <div class="pad column_4">
+
+      </div>
+      <div class="pad column_5">
+
+      </div>
+      <div class="pad column_6">
+
+      </div>
+      <div class="pad column_7">
+
+      </div>
+      <div class="pad column_8">
+
+      </div>
+      <div class="pad column_9">
+
+      </div>
+      <div class="pad column_10">
+
+      </div>
+      <div class="pad column_11">
+
+      </div>
+      <div class="pad column_12">
+
+      </div>
+      <div class="pad column_13">
+
+      </div>
+      <div class="pad column_14">
+
+      </div>
+      <div class="pad column_15">
+
+      </div>
+    </div>
+  </div>
+  <div class="container2">
+    <div class="inner">
+      <h1>This is the trailmaking test.</h1>
+      <p>Please read the instructions and then complete the practice exercise.</p>
+      <h2>Instructions</h2>
+      <ol>
+        <li>Click the "Ready" Button (Note: on this page, it says practice, when you actually go to complete the test, it'll say "Ready").</li>
+        <li>Click the circles in the order that they are numbered. Ex: If there is a circle numbered "1", click it first. Then, click "2", and so on.</li>
+        <li>If you click the incorrect circle, it will light up red and then you can select the right circle.</li>
+        <li>Your goal is to complete this task as fast as your mind will allow you to.</li>
+      </ol>
+      <button id="practice">Practice</button>
+    </div>
+    <div class="practiceExercise">
+      <div class="circle practice number1" id="1">
+        <p>1</p>
+      </div>
+      <div class="circle practice number2" id="2">
+        <p>2</p>
+      </div>
+      <div class="circle practice number3" id="3">
+        <p>3</p>
+      </div>
+      <div class="circle practice number4" id="4">
+        <p>4</p>
+      </div>
+      <div class="circle practice number5" id="5">
+        <p>5</p>
+      </div>
+    </div>
+    <div class="readyButton">
+      <button id="trailMaker1">Ready</button>
+    </div>
+    <div class="trailMaker1">
+      <div class="circle trailMakerOne number1" id="1">
+        <p>1</p>
+      </div>
+      <div class="circle trailMakerOne number2" id="2">
+        <p>2</p>
+      </div>
+      <div class="circle trailMakerOne number3" id="3">
+        <p>3</p>
+      </div>
+      <div class="circle trailMakerOne number4" id="4">
+        <p>4</p>
+      </div>
+      <div class="circle trailMakerOne number5" id="5">
+        <p>5</p>
+      </div>
+    </div>
+    <div class="trailMaker2">
+      <div class="circle trailMakerTwo number1" id="1">
+        <p>1</p>
+      </div>
+      <div class="circle trailMakerTwo number2" id="2">
+        <p>2</p>
+      </div>
+      <div class="circle trailMakerTwo number3" id="3">
+        <p>3</p>
+      </div>
+      <div class="circle trailMakerTwo number4" id="4">
+        <p>4</p>
+      </div>
+      <div class="circle trailMakerTwo number5" id="5">
+        <p>5</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Javascripts -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/kit.js"></script>
+  <script type="text/javascript" src="js/impulse-response.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/codes.js"></script>
+  <script type="text/javascript" src="js/trailmaking.js"></script>
+
+</body><script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'a2plcpnl0231'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script><script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script></html>
