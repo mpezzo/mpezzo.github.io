@@ -1,0 +1,170 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<title>Tap to measure tempo (JavaScript)</title>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta http-equiv="Content-Script-Type" content="application/javascript"/>
+	<meta name="viewport" content="width=device-width,initial-scale=1"/>
+	<link rel="Stylesheet" href="/res/style/common.css" type="text/css" media="all"/>
+	<link rel="Stylesheet" href="/res/style/screen.css" type="text/css" media="screen"/>
+	<link rel="Stylesheet" href="/res/style/print.css" type="text/css" media="print"/>
+	<link rel="canonical" href="https://www.nayuki.io/page/tap-to-measure-tempo-javascript"/>
+</head>
+
+<body>
+
+<header><h1><a href="/">Project Nayuki</a></h1><nav id="headnav"><h2>Navigation</h2><ul><li><a href="/recent-pages/">Recent </a></li><li><a href="/category/programming">Programming </a></li><li><a href="/category/math">Math </a></li><li><a href="/page/bmp-io-library-java" title="Page: BMP I/O library (Java)">Random </a></li></ul><ul><li><a href="/page/about">About/Contact </a></li><li><a href="https://github.com/nayuki" onclick="if('ga' in window)ga('send','pageview','https://github.com/nayuki');">GitHub </a></li></ul></nav></header>
+<hr/>
+
+<div id="main">
+<article>
+<h1><img src="/res/page-icon/64/tap-to-measure-tempo-javascript.png"/> Tap to measure tempo (JavaScript)</h1>
+
+<h2>Program</h2>
+<noscript>
+	<p>This requires JavaScript, which is not supported by your browser or is disabled.</p>
+</noscript>
+<form action="#" method="get" onsubmit="return false" onreset="init()">
+	<table>
+		<thead>
+			<tr>
+				<td></td>
+				<td>Simple</td>
+				<td>Advanced</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Beats (counts)</td>
+				<td colspan="2"><input id="simpleBeats" readonly="readonly"/></td>
+			</tr>
+			<tr>
+				<td>Position (bar : beat)</td>
+				<td colspan="2"><input id="simplePosition" readonly="readonly"/></td>
+			</tr>
+			<tr>
+				<td>Time (<abbr title="second">s</abbr>)</td>
+				<td><input id="simpleTime" readonly="readonly"/></td>
+			<td></td>
+			</tr>
+			<tr>
+				<td><abbr title="Standard deviation">Std. dev.</abbr> (<abbr title="millisecond">ms</abbr>)</td>
+				<td></td>
+				<td><input id="advancedStdDev" readonly="readonly"/></td>
+			</tr>
+			<tr>
+				<td>Offset (<abbr title="millisecond">ms</abbr>)</td>
+				<td></td>
+				<td><input id="advancedOffset" readonly="readonly"/></td>
+			</tr>
+			<tr>
+				<td>Correlation (r<sup>2</sup>)</td>
+				<td></td>
+				<td><input id="advancedCorrelation" readonly="readonly"/></td>
+			</tr>
+			<tr>
+				<td>Last <abbr title="deviation">dev.</abbr> (<abbr title="millisecond">ms</abbr> early)</td>
+				<td><input id="simpleLastDev" readonly="readonly"/></td>
+				<td><input id="advancedLastDev" readonly="readonly"/></td>
+			</tr>
+			<tr>
+				<td>Period (<abbr title="millisecond">ms</abbr>)</td>
+				<td><input id="simplePeriod" readonly="readonly"/></td>
+				<td><input id="advancedPeriod" readonly="readonly"/></td>
+			</tr>
+			<tr>
+				<td>Tempo (<abbr title="beat per minute">BPM</abbr>)</td>
+				<td><input id="simpleTempo" readonly="readonly"/></td>
+				<td><input id="advancedTempo" readonly="readonly"/></td>
+			</tr>
+			<tr>
+				<td>Controls</td>
+				<td colspan="2">
+					<p>
+						<input type="button" value="Done" onclick="done()"/>
+						<input type="reset" value="Reset"/>
+					</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</form>
+<script type="application/javascript" src="/res/tap-to-measure-tempo-javascript/tap-to-measure-tempo.js"></script>
+
+<h2>Description</h2>
+<p>First, start playing a song. Then come back to this web page. On each beat, tap on any key on the keyboard, timed as accurately as possible. When there are no more beats to be counted, press the “Done” button. Press “Reset” to clear the results and start again.</p>
+<p>This program uses <a href="https://en.wikipedia.org/wiki/Linear_regression" title="Wikipedia: Linear regression">linear regression</a> to calculate the tempo based on the timing of your key presses. The <a href="/res/tap-to-measure-tempo-javascript/tap-to-measure-tempo.js">source code</a> is available for viewing.</p>
+
+<h2>More info</h2>
+<ul>
+	<li><a href="https://en.wikipedia.org/wiki/Tempo">Wikipedia: Tempo</a></li>
+	<li><a href="https://en.wikipedia.org/wiki/Beats_per_minute">Wikipedia: Beats per minute</a></li>
+</ul>
+<footer>
+	<div>Categories: <a href="/category/programming">Programming</a>, <a href="/category/music">Music</a>, <a href="/category/javascript">JavaScript</a></div>
+	<div>Last updated: <a href="/recent-pages/" id="datelink"><time>2011-09-05</time></a></div>
+</footer>
+
+<hr/>
+<nav>
+	<h2>Browse Project Nayuki</h2>
+	<ul>
+		<li class="random-related"><a href="/page/good-java-idioms">Good Java idioms</a></li>
+		<li class="random-related"><a href="/page/image-unshredder-by-annealing">Image unshredder by annealing</a></li>
+		<li class="random-related"><a href="/page/random-password-generator-javascript">Random password generator (JavaScript)</a></li>
+		<li class="random-related"><a href="/page/recommended-articles-from-canadian-couch-potato-investment-blog">Recommended articles from Canadian Couch Potato investment blog</a></li>
+		<li class="random-related"><a href="/page/graphic-overview-of-canada-income-tax-rrsp-and-tfsa">Graphic overview of Canada income tax, RRSP, and TFSA</a></li>
+	</ul>
+</nav>
+
+</article>
+<hr/>
+<nav id="sidebar">
+	<h2>Sidebar</h2>
+	<p>Recent</p>
+	<table>
+		<tbody>
+			<tr><td><a href="/page/dont-share-commented-out-code"><img src="/res/page-icon/64/dont-share-commented-out-code.png" alt=""/></a></td><td><a href="/page/dont-share-commented-out-code">Don’t share commented out code</a></td></tr>
+			<tr><td><a href="/page/web-site-notes"><img src="/res/page-icon/64/web-site-notes.png" alt=""/></a></td><td><a href="/page/web-site-notes">Web site notes</a></td></tr>
+			<tr><td><a href="/page/decent-feedback-from-readers"><img src="/res/page-icon/64/decent-feedback-from-readers.png" alt=""/></a></td><td><a href="/page/decent-feedback-from-readers">Decent feedback from readers</a></td></tr>
+			<tr><td><a href="/page/overview-of-project-nayuki-software-licenses"><img src="/res/page-icon/64/overview-of-project-nayuki-software-licenses.png" alt=""/></a></td><td><a href="/page/overview-of-project-nayuki-software-licenses">Overview of Project Nayuki software licenses</a></td></tr>
+			<tr><td><a href="/page/simple-deflate-decompressor"><img src="/res/page-icon/64/simple-deflate-decompressor.png" alt=""/></a></td><td><a href="/page/simple-deflate-decompressor">Simple DEFLATE decompressor</a></td></tr>
+			<tr><td></td><td><a href="/recent-pages/" title="Recent pages">(more)</a></td></tr>
+		</tbody>
+	</table>
+	<p>Random</p>
+	<table>
+		<tbody>
+			<tr><td><a href="/page/avl-tree-list"><img src="/res/page-icon/64/avl-tree-list.png" alt=""/></a></td><td><a href="/page/avl-tree-list">AVL tree list</a></td></tr>
+			<tr><td><a href="/page/fast-fibonacci-algorithms"><img src="/res/page-icon/64/fast-fibonacci-algorithms.png" alt=""/></a></td><td><a href="/page/fast-fibonacci-algorithms">Fast Fibonacci algorithms</a></td></tr>
+			<tr><td><a href="/page/frog-fractions-guide"><img src="/res/page-icon/64/frog-fractions-guide.png" alt=""/></a></td><td><a href="/page/frog-fractions-guide">Frog Fractions guide</a></td></tr>
+			<tr><td></td><td><a href="/page/" title="All pages">(more)</a></td></tr>
+		</tbody>
+	</table>
+	<p>RSS feed</p>
+	<table id="sidebar-rss">
+		<tbody>
+			<tr><td><a href="/rss20.xml"><img src="/res/style/rss-feed.svg" alt=""/></a></td><td><a href="/rss20.xml">Subscribe for updates</a></td></tr>
+		</tbody>
+	</table>
+</nav>
+</div>
+
+<hr/>
+<footer id="feedback">
+	<p><strong>Feedback:</strong> Question/comment? <a href="/page/about#contact">Contact me</a></p>
+	<p><a href="https://www.facebook.com/ProjectNayuki"><img src="/res/style/facebook-icon.svg" alt="" style="width:1.73em; vertical-align:middle"/> ProjectNayuki</a>: Like, comment, follow updates on Facebook</p>
+	<p><a href="/page/about#copyright" id="copyrightlink" title="Copyright information">Copyright © 2018 Project Nayuki</a></p>
+</footer>
+<script type="application/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create','UA-23532931-1','auto'); ga('send','pageview');
+</script>
+</body>
+</html>
