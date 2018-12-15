@@ -25,6 +25,8 @@ var TEMPO_MAX = 200;
 var TEMPO_MIN = 40;
 var TEMPO_STEP = 4;
 
+
+
 function changeTempo(desiredTempo) {
   tempo = desiredTempo;
   $("#tempo-input").val(tempo);

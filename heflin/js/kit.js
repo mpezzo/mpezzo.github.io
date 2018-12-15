@@ -27,9 +27,9 @@ Kit.prototype.load = function() {
   var pathName = this.pathName();
 
   //don't want to have set number of instruments, or whatever
-  var kickPath = pathName + "kick.mp3";
-  var snarePath = pathName + "snare.mp3";
-  var hihatPath = pathName + "hihat.mp3";
+  var kickPath = pathName + "kick-dry.wav";
+  var snarePath = pathName + "snare-vinyl01.wav";
+  var hihatPath = pathName + "hihat-plain.wav";
 
   this.loadSample(kickPath, "kick");
   this.loadSample(snarePath, "snare");
